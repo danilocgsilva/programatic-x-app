@@ -212,6 +212,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
   .w-full {
     width: 100%;
   }
@@ -220,6 +223,12 @@
   }
   .max-w-md {
     max-width: var(--container-md);
+  }
+  .min-w-0 {
+    min-width: 0px;
+  }
+  .flex-1 {
+    flex: 1;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -232,6 +241,12 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   :where(.space-y-4 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
@@ -303,6 +318,9 @@
   }
   .break-words {
     overflow-wrap: break-word;
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
   }
   .whitespace-pre-wrap {
     white-space: pre-wrap;

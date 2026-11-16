@@ -3,3 +3,5 @@ __pycache__\*
 __pycache__/*
 programatic_x_app.egg-info/*
 build/*
+__pycache__/*
+__pycache__\*

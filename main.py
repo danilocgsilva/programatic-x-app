@@ -13,9 +13,9 @@ async def index(request: Request):
     return templates.TemplateResponse(request, "index.html")
 
 @app.post("/submit", response_class=HTMLResponse)
-async def submit(request: Request, data: str = Form(...)):
+async def submit(request: Request, data: str = Form(...), seconds: int = Form(10)):
     return templates.TemplateResponse(
         request,
         "index.html",
-        {"submitted": True, "data": data},
+        {"submitted": True, "data": data, "seconds": seconds},
     )
