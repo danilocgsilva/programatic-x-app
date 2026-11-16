@@ -2,4 +2,4 @@ node_modules
 __pycache__\*
 __pycache__/*
 programatic_x_app.egg-info/*
-build/lib/main.py
+build/*
