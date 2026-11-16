@@ -10,11 +10,12 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 @app.post("/submit", response_class=HTMLResponse)
 async def submit(request: Request, name: str = Form(...), email: str = Form(...)):
     return templates.TemplateResponse(
+        request,
         "index.html",
-        {"request": request, "submitted": True, "name": name, "email": email},
+        {"submitted": True, "name": name, "email": email},
     )
