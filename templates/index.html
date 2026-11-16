@@ -7,26 +7,21 @@
   <link href="/static/output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-5xl">
     <h1 class="text-2xl font-bold text-gray-800 mb-6">Submit Form</h1>
 
     {% if submitted %}
       <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">
-        Thanks, <strong>{{ name }}</strong>! We received {{ email }}.
+        <p class="mb-2">We received your input:</p>
+        <pre class="whitespace-pre-wrap break-words">{{ data }}</pre>
       </div>
     {% endif %}
 
     <form id="my-form" method="post" action="/submit" class="space-y-4">
       <div>
-        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-        <input type="text" id="name" name="name" required
-               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
-
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" name="email" required
-               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <label for="data" class="block text-sm font-medium text-gray-700">Input data</label>
+        <textarea id="data" name="data" rows="18" required
+                  class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
       </div>
 
       <button type="submit"

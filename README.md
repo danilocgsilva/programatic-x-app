@@ -12,8 +12,10 @@ To start the application, first, build the frontend assets:
 npm run build:css
 ```
 
-The, to start the web server, just type at the terminal:
+Then, to start the development server, run this in the terminal:
 
 ```
-uvicorn main:app --host 0.0.0.0 --port 8010
+uvicorn main:app --host 0.0.0.0 --port 8010 --reload
 ```
+
+The server will restart automatically when Python files change.
