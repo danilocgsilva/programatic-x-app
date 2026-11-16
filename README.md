@@ -2,9 +2,13 @@
 
 A web browser interface to control programatic-x.
 
-You will need the Python and Node installed locally.
+You will need Python and Node installed locally.
 
-Watch the packages of `project.toml` to install first the dependencies.
+Install the Python dependencies, including `programatic-x` from GitHub, with:
+
+```
+python -m pip install -e .
+```
 
 To start the application, first, build the frontend assets:
 
