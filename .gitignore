@@ -5,3 +5,4 @@ programatic_x_app.egg-info/*
 build/*
 __pycache__/*
 __pycache__\*
+stativ/form.js
