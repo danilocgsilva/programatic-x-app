@@ -13,8 +13,10 @@ python -m pip install -e .
 To start the application, first, build the frontend assets:
 
 ```
-npm run build:css
+npm run build
 ```
+
+This builds the CSS and compiles `templates/form.ts` to `static/form.js`.
 
 Run the app on the machine whose keyboard should receive the text, and keep it
 bound to localhost:

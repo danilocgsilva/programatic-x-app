@@ -6,3 +6,4 @@ build/*
 __pycache__/*
 __pycache__\*
 stativ/form.js
+static/form.js
