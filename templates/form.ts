@@ -11,13 +11,8 @@ if (
 }
 
 let countdownStarted = false;
-let countdownFinished = false;
 
 form.addEventListener("submit", (event) => {
-  if (countdownFinished) {
-    return;
-  }
-
   event.preventDefault();
   if (countdownStarted) {
     return;
@@ -42,14 +37,43 @@ form.addEventListener("submit", (event) => {
     submitButton.disabled = true;
   }
 
-  const submitAfterCountdown = () => {
-    countdownFinished = true;
-    countdownStatus.textContent = "Countdown finished. Typing now.";
-    form.requestSubmit();
+  const releaseForm = () => {
+    countdownStarted = false;
+    form.querySelectorAll("textarea, input").forEach((field) => {
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        field.readOnly = false;
+      }
+    });
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = false;
+    }
+  };
+
+  const submitAfterCountdown = async () => {
+    form.querySelectorAll("textarea").forEach((textarea) => {
+      textarea.readOnly = false;
+    });
+    countdownStatus.textContent = "Submitting...";
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+      });
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}.`);
+      }
+
+      releaseForm();
+      countdownStatus.textContent = "Submission complete.";
+    } catch (error) {
+      releaseForm();
+      countdownStatus.textContent = "Submission failed. Please try again.";
+      console.error("Could not submit the form.", error);
+    }
   };
 
   if (seconds === 0) {
-    submitAfterCountdown();
+    void submitAfterCountdown();
     return;
   }
 
@@ -65,7 +89,7 @@ form.addEventListener("submit", (event) => {
     remaining -= 1;
     if (remaining === 0) {
       window.clearInterval(interval);
-      submitAfterCountdown();
+      void submitAfterCountdown();
       return;
     }
     updateCountdown();
