@@ -16,10 +16,11 @@ To start the application, first, build the frontend assets:
 npm run build:css
 ```
 
-Then, to start the development server, run this in the terminal:
+Run the app on the machine whose keyboard should receive the text, and keep it
+bound to localhost:
 
 ```
-uvicorn main:app --host 0.0.0.0 --port 8010 --reload
+python -m uvicorn main:app --host 127.0.0.1 --port 8010 --reload
 ```
 
 The server will restart automatically when Python files change.

@@ -31,7 +31,7 @@
         <label for="seconds" class="text-sm font-medium text-gray-700 whitespace-nowrap">
           Countdown in seconds
         </label>
-        <input id="seconds" name="seconds" type="number" value="10"
+        <input id="seconds" name="seconds" type="number" value="10" min="0" step="1" required
           class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
       </div>
 
@@ -39,6 +39,7 @@
         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">
         Submit
       </button>
+      <p id="countdown-status" class="text-sm text-gray-700" role="status" aria-live="polite"></p>
     </form>
   </div>
 
