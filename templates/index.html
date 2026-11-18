@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Long type</title>
+  <title>Long type in</title>
   <link href="/static/output.css" rel="stylesheet">
 </head>
 
@@ -28,30 +28,32 @@
       </div>
 
       <!-- Parent wrapper to control the row/column layout -->
-      <div class="flex flex-col md:flex-row gap-6 w-full">
+      <div class="w-full options-container">
+        <div class="flex flex-col gap-6 w-full options-layout">
 
-        <!-- First item -->
-        <!-- Added min-w-0 to allow shrinking -->
-        <div class="flex items-center gap-6 w-full md:flex-1 min-w-0">
-          <!-- Removed whitespace-nowrap so the text can wrap on small screens -->
-          <label for="seconds" class="text-sm font-medium text-gray-700">
-            Countdown in seconds
-          </label>
-          <input id="seconds" name="seconds" type="number" value="10" min="0" step="1" required
-            class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <!-- First item -->
+          <!-- Added min-w-0 to allow shrinking -->
+          <div class="flex items-center gap-6 w-full min-w-0">
+            <!-- Removed whitespace-nowrap so the text can wrap on small screens -->
+            <label for="seconds" class="text-sm font-medium text-gray-700">
+              Countdown in seconds
+            </label>
+            <input id="seconds" name="seconds" type="number" value="10" min="0" step="1" required
+              class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
+          <!-- Second item -->
+          <!-- Added min-w-0 to allow shrinking -->
+          <div class="flex items-center gap-6 w-full min-w-0">
+            <!-- Removed whitespace-nowrap so the text can wrap on small screens -->
+            <label for="delay-by-type" class="text-sm font-medium text-gray-700">
+              Delay by type in milliseconds
+            </label>
+            <input id="delay-by-type" name="delay_by_type_ms" type="number" value="0" min="0" step="1"
+              class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+
         </div>
-
-        <!-- Second item -->
-        <!-- Added min-w-0 to allow shrinking -->
-        <div class="flex items-center gap-6 w-full md:flex-1 min-w-0">
-          <!-- Removed whitespace-nowrap so the text can wrap on small screens -->
-          <label for="delay-by-type" class="text-sm font-medium text-gray-700">
-            Delay by type in milliseconds
-          </label>
-          <input id="delay-by-type" name="delay_by_type_ms" type="number" value="0" min="0" step="1"
-            class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-
       </div>
 
       <div>
