@@ -3,7 +3,7 @@ py-modules = ["main"]
 
 [project]
 name = "programatic-x-app"
-version = "1.0.0"
+version = "1.0.1"
 description = "A web browser interface to control programatic-x."
 requires-python = ">=3.9"
 

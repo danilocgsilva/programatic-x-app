@@ -14,8 +14,18 @@ async def index(request: Request):
     return templates.TemplateResponse(request, "index.html")
 
 @app.post("/submit", response_class=HTMLResponse)
-def submit(request: Request, data: str = Form(...), seconds: int = Form(10, ge=0)):
-    LongType().type(data)
+def submit(
+    request: Request,
+    data: str = Form(...),
+    seconds: int = Form(10, ge=0),
+    delay_by_type_ms: int = Form(0, ge=0),
+    shift_enter_in_newlines: bool = Form(False),
+):
+    LongType().type(
+        data,
+        milliseconds=delay_by_type_ms,
+        shift_enter=shift_enter_in_newlines,
+    )
     return templates.TemplateResponse(
         request,
         "index.html",
